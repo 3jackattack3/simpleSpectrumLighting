@@ -3,11 +3,12 @@
 #include <avr/power.h>
 
 
-Adafruit_NeoPixel strip = Adafruit_NeoPixel(1, 2, NEO_RGBW + NEO_KHZ800);
+Adafruit_NeoPixel strip = Adafruit_NeoPixel(1, 3, NEO_RGBW + NEO_KHZ800);
 
 void setup() {
   // pinMode(2, OUTPUT);
 
+  // if (F_CPU == 16000000)
   clock_prescale_set(clock_div_1);
 
 
@@ -28,11 +29,15 @@ void loop() {
 
   for(int i = 0; i<=255; i++){
     strip.setPixelColor(0, strip.Color(0, i, 255-i));
+    // strip.setPixelColor(1, strip.Color(0, i, 255-i));
+    // strip.setPixelColor(2, strip.Color(0, i, 255-i));
     strip.show();
     delay(10);
   }
   for(int i = 255; i>=0; i--){
     strip.setPixelColor(0, strip.Color(0, i, 255-i));
+    // strip.setPixelColor(1, strip.Color(0, i, 255-i));
+    // strip.setPixelColor(2, strip.Color(0, i, 255-i));
     strip.show();
     delay(10);
   }
